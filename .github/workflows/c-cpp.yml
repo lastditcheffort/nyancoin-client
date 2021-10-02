@@ -1,4 +1,4 @@
-name: '[FULL] ubuntu-18.04.'
+https://github.com/Azure/aci-deploy/pull/61name: '[FULL] ubuntu-18.04.'
 
 on: [push]
 
@@ -29,10 +29,8 @@ jobs:
         run: export BDB_PREFIX="$PWD/db4"  
       - name: autogen 
         run: sh autogen.sh
-      - name: autogen 
-        run: ./configure --disable-tests \
-            "BDB_LIBS"="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" \
-            "BDB_CFLAGS"="-I${BDB_PREFIX}/include"
+      - name: configure
+        run: ./configure --disable-tests "BDB_LIBS"="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" "BDB_CFLAGS"="-I${BDB_PREFIX}/include"
       - name: make
         run: make -j4
         
