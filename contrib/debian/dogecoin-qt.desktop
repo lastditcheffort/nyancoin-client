@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Nyancoin Core
+Comment=Connect to the Nyancoin P2P Network
+Comment[de]=Verbinde mit dem Nyancoin peer-to-peer Netzwerk
+Comment[fr]=Nyancoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Nyancoin, eşten eşe kriptografik sanal para birimi
+Exec=nyancoin-qt %u
+Terminal=false
+Type=Application
+Icon=nyancoin128
+MimeType=x-scheme-handler/nyancoin;
+Categories=Office;Finance;

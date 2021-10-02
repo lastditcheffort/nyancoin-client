@@ -1,0 +1,33 @@
+# /etc/conf.d/nyancoind: config file for /etc/init.d/nyancoind
+
+# Config file location
+#NYANCOIND_CONFIGFILE="/etc/nyancoin/nyancoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $NYANCOIND_USER)
+#NYANCOIND_PIDDIR="/var/run/nyancoind"
+
+# What filename to give the pidfile
+#NYANCOIND_PIDFILE="${NYANCOIND_PIDDIR}/nyancoind.pid"
+
+# Where to write nyancoind data (be mindful that the blockchain is large)
+#NYANCOIND_DATADIR="/var/lib/nyancoind"
+
+# User and group to own nyancoind process
+#NYANCOIND_USER="nyancoin"
+#NYANCOIND_GROUP="nyancoin"
+
+# Path to nyancoind executable
+#NYANCOIND_BIN="/usr/bin/nyancoind"
+
+# Nice value to run nyancoind under
+#NYANCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+NYANCOIND_OPTS="-disablewallet"
+
+# The timeout in seconds OpenRC will wait for nyancoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+NYANCOIND_SIGTERM_TIMEOUT=60
