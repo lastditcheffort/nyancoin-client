@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/nyancoin-official/nyancoin-client/master/doc/NYANCAT.gif"></img> Nyancoin Core (NYAN, Ɲ)
+<img src="doc/NYANCAT.gif"></img> Nyancoin Core (NYAN, Ɲ)
 ==========================
 
 https://www.nyancoin.info/
