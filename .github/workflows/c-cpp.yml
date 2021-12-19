@@ -1,4 +1,4 @@
-https://github.com/Azure/aci-deploy/pull/61name: '[FULL] ubuntu-18.04.'
+name: '[FULL] ubuntu-18.04.'
 
 on: [push]
 
@@ -22,17 +22,11 @@ jobs:
         
       - name: Install base dependencies3
         run: sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
-        
-      - name: Build bdb
-        run: ./contrib/install_db4.sh `pwd`
-      - name: Fix ENV
-        run: export BDB_PREFIX="$PWD/db4"  
+
       - name: autogen 
         run: sh autogen.sh
-      - name: configure
-        run: ./configure --disable-tests "BDB_LIBS"="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" "BDB_CFLAGS"="-I${BDB_PREFIX}/include"
+      - name: autogen 
+        run: ./configure --with-incompatible-bdb
       - name: make
-        run: make -j4
-        
-
+run: make -j4
         
