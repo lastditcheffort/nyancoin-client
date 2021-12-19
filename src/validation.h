@@ -149,6 +149,11 @@ static const int MAX_UNCONNECTING_HEADERS = 10;
 
 static const bool DEFAULT_PEERBLOOMFILTERS = true;
 
+static const bool nMaxReorganizationDepth = 60; // 60 at 1 minute block timespan is +/- 60 minutes.
+static const bool nMinReorganizationPeers = 4;
+static const bool nMinReorganizationAge = 60 * 60 * 12; // 12 hours
+
+
 struct BlockHasher
 {
     size_t operator()(const uint256& hash) const { return hash.GetCheapHash(); }
