@@ -3005,8 +3005,23 @@ std::vector<unsigned char> GenerateCoinbaseCommitment(CBlock& block, const CBloc
 
 bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& state, const CBlockIndex* pindexPrev, int64_t nAdjustedTime)
 {
-    const int nHeight = pindexPrev == NULL ? 0 : pindexPrev->nHeight + 1;
+    assert(pindexPrev != nullptr);
+    const int nHeight = pindexPrev->nHeight + 1;
     const Consensus::Params& consensusParams = Params().GetConsensus(nHeight);
+
+    //If this is a reorg, check that it is not too deep
+    int nMaxReorgDepth = gArgs.GetArg("-maxreorg", GetParams().MaxReorganizationDepth());
+    int nMinReorgPeers = gArgs.GetArg("-minreorgpeers", GetParams().MinReorganizationPeers());
+    int nMinReorgAge = gArgs.GetArg("-minreorgage", GetParams().MinReorganizationAge());
+    bool fGreaterThanMaxReorg = (chainActive.Height() - (nHeight - 1)) >= nMaxReorgDepth;
+    if (fGreaterThanMaxReorg && g_connman) {
+        int nCurrentNodeCount = g_connman->GetNodeCount(CConnman::CONNECTIONS_ALL);
+        bool bIsCurrentChainCaughtUp = (GetTime() - chainActive.Tip()->nTime) <= nMinReorgAge;
+        if ((nCurrentNodeCount >= nMinReorgPeers) && bIsCurrentChainCaughtUp)
+            return state.DoS(10,
+                             error("%s: forked chain older than max reorganization depth (height %d), with connections (count %d), and caught up with active chain (%s)",
+                                   __func__, nHeight, nCurrentNodeCount, bIsCurrentChainCaughtUp ? "true" : "false"),
+                             REJECT_MAXREORGDEPTH, "bad-fork-prior-to-maxreorgdepth");
 
     // Disallow legacy blocks after merge-mining start.
     if (!consensusParams.fAllowLegacyBlocks
@@ -3043,8 +3058,6 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
        (block.GetBaseVersion() < 4 && nHeight >= consensusParams.BIP65Height))
             return state.Invalid(false, REJECT_OBSOLETE, strprintf("bad-version(0x%08x)", block.GetBaseVersion()),
                                  strprintf("rejected nVersion=0x%08x block", block.GetBaseVersion()));
-
-
 
     return true;
 }
