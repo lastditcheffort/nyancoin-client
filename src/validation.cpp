@@ -3010,9 +3010,9 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     const Consensus::Params& consensusParams = Params().GetConsensus(nHeight);
 
     //If this is a reorg, check that it is not too deep
-    int nMaxReorgDepth = gArgs.GetArg("-maxreorg", GetParams().MaxReorganizationDepth());
-    int nMinReorgPeers = gArgs.GetArg("-minreorgpeers", GetParams().MinReorganizationPeers());
-    int nMinReorgAge = gArgs.GetArg("-minreorgage", GetParams().MinReorganizationAge());
+    int nMaxReorgDepth = 60;
+    int nMinReorgPeers = 4;
+    int nMinReorgAge = 60 * 60 * 12;
     bool fGreaterThanMaxReorg = (chainActive.Height() - (nHeight - 1)) >= nMaxReorgDepth;
     if (fGreaterThanMaxReorg && g_connman) {
         int nCurrentNodeCount = g_connman->GetNodeCount(CConnman::CONNECTIONS_ALL);
