@@ -3013,8 +3013,8 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     int nMinReorgPeers = 4;
     int nMinReorgAge = 60*60*12;
     bool fGreaterThanMaxReorg = (chainActive.Height() - (nHeight - 1)) >= nMaxReorgDepth;
-    if (fGreaterThanMaxReorg && g_connman) {
-        int nCurrentNodeCount = g_connman->GetNodeCount(CConnman::CONNECTIONS_ALL);
+    if (fGreaterThanMaxReorg && connman) {
+        int nCurrentNodeCount = connman->GetNodeCount(CConnman::CONNECTIONS_ALL);
         bool bIsCurrentChainCaughtUp = (GetTime() - chainActive.Tip()->nTime) <= nMinReorgAge;
         if ((nCurrentNodeCount >= nMinReorgPeers) && bIsCurrentChainCaughtUp)
             return state.DoS(10,
