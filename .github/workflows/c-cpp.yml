@@ -1,1 +1,31 @@
+name: '[FULL] ubuntu-18.04.'
 
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v1
+        
+      - name: Update apt repos
+        run: sudo apt-get update
+        
+      - name: Install Bitcoin PPA 
+        run: sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com DFA2F90D && sudo apt-get update
+    
+      - name: Install base dependencies
+        run: sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
+      - name: Install base dependencies2   
+        run: sudo apt-get install libboost-all-dev libdb-dev libdb++-dev libminiupnpc-dev libqrencode-dev
+        
+      - name: Install base dependencies3
+        run: sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
+
+      - name: autogen 
+        run: sh autogen.sh
+      - name: autogen 
+        run: ./configure --with-incompatible-bdb
+      - name: make     
+        run: make -j4
