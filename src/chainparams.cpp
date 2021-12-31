@@ -112,7 +112,7 @@ public:
         consensus.defaultAssumeValid = uint256S("0xb477d9bc0721a1b96547495404583d68123f471fdd1d4058a9adff2fa7452298");  // Block 11461900
 
         // AuxPoW parameters
-        consensus.nAuxpowChainId = 0x03BF; // 241
+        consensus.nAuxpowChainId = 0x0151; // 337
         consensus.fStrictChainId = true;
         consensus.fAllowLegacyBlocks = true;
         consensus.nHeightEffective = 0;
