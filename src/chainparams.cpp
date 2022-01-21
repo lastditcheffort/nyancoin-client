@@ -212,6 +212,8 @@ public:
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0.5      // * estimated number of transactions per second after checkpoint
         };
+        nMaxReorganizationDepth = 55; // 55 at 1 minute block timespan is +/- 55 minutes.
+        nMinReorganizationPeers = 3;
     }
 };
 static CMainParams mainParams;
