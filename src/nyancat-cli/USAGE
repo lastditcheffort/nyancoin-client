@@ -5,4 +5,4 @@ To build:
 
 A prebuilt x86-64 linux binary can be tested by running `bin/nyancat-cli` in this directory.
 
-64f6d51d94fe72bec0955a3e50eaf0f8c3b334650b01d5fb95b4068013fccaafddb369088559d211eb13b02b4e07e5faab5267b12febaaf4259cdd81223af50e  nyancat-cli
+64f6d51d94fe72bec0955a3e50eaf0f8c3b334650b01d5fb95b4068013fccaafddb369088559d211eb13b02b4e07e5faab5267b12febaaf4259cdd81223af50e  bin/nyancat-cli
