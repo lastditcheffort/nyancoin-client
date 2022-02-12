@@ -81,6 +81,9 @@ public:
     const std::vector<SeedSpec6>& FixedSeeds() const { return vFixedSeeds; }
     const CCheckpointData& Checkpoints() const { return checkpointData; }
     const ChainTxData& TxData() const { return chainTxData; }
+        
+    int MaxReorganizationDepth() const { return nMaxReorganizationDepth; }
+    int MinReorganizationPeers() const { return nMinReorganizationPeers; }
 
     int SwitchKimotoGravity() const { return nSwitchKimotoGravity; }
 
@@ -105,6 +108,9 @@ protected:
     bool fMineBlocksOnDemand;
     CCheckpointData checkpointData;
     ChainTxData chainTxData;
+    
+    int nMaxReorganizationDepth;
+    int nMinReorganizationPeers;
 
     int nSwitchKimotoGravity;
 
