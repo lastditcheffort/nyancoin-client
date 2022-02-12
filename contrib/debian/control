@@ -26,9 +26,9 @@ Build-Depends: debhelper,
  python,
  libzmq3-dev
 Standards-Version: 3.9.2
-Homepage: http://www.nyancoin.com/
-Vcs-Git: git://github.com/nyancoin/nyancoin.git
-Vcs-Browser: http://github.com/nyancoin/nyancoin
+Vcs-Git: git://github.com/nyancoin-official/nyancoin-client.git
+Homepage: http://www.nyancoin.info/
+Vcs-Browser: https://github.com/nyancoin-official/nyancoin-client
 
 Package: nyancoind
 Architecture: any
