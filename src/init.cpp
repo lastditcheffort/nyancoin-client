@@ -511,8 +511,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/nyancoin/nyancoin>";
-    const std::string URL_WEBSITE = "<https://nyancoin.com>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/nyancoin-official/nyancoin-client>";
+    const std::string URL_WEBSITE = "<https://nyancoin.info>";
 
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2013, COPYRIGHT_YEAR) + " ") + "\n" +
            "\n" +
