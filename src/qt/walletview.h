@@ -99,7 +99,7 @@ public Q_SLOTS:
     /** Ask for passphrase to unlock wallet temporarily */
     void unlockWallet();
     /** Open the print paper wallets dialog **/
-    //void printPaperWallets();
+    void printPaperWallets();
 
     /** Show used sending addresses */
     void usedSendingAddresses();

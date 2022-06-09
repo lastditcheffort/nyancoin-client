@@ -330,13 +330,13 @@ void WalletView::requestedSyncWarningInfo()
     Q_EMIT outOfSyncWarningClicked();
 }
 
-//void WalletView::printPaperWallets()
-//{
-//    if(!walletModel)
-//        return;
-//
-//    PaperWalletDialog dlg(this);
-//    dlg.setModel(walletModel);
-//    dlg.setClientModel(clientModel);
-//    dlg.exec();
-//}
+void WalletView::printPaperWallets()
+{
+    if(!walletModel)
+        return;
+
+    PaperWalletDialog dlg(this);
+    dlg.setModel(walletModel);
+    dlg.setClientModel(clientModel);
+    dlg.exec();
+}
