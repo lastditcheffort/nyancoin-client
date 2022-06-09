@@ -1,22 +1,62 @@
+
+# This variant of the unit file is for package installations.
+#
+# The relevant paths are:
+#
+#/usr/bin/nyancoind
+#/etc/nyancoin/
+#/var/lib/nyancoin/
+
 [Unit]
 Description=Nyancoin's distributed currency daemon
 After=network.target
-
 [Service]
+Type=simple
+ExecStart=/usr/bin/nyancoind -conf=/etc/nyancoin/nyancoin.conf -datadir=/var/lib/nyancoin
+KillSignal=SIGINT
+Restart=always
+RestartSec=5
+TimeoutStopSec=60
+TimeoutStartSec=5
+StartLimitIntervalSec=120
+StartLimitBurst=5
 User=nyancoin
 Group=nyancoin
-
-Type=forking
-PIDFile=/var/lib/nyancoind/nyancoind.pid
-ExecStart=/usr/bin/nyancoind -daemon -pid=/var/lib/nyancoind/nyancoind.pid \
--conf=/etc/nyancoin/nyancoin.conf -datadir=/var/lib/nyancoind -disablewallet
-
-Restart=always
+### Restrict resource consumption
+MemoryAccounting=yes
+MemoryLimit=3g
+### Restrict access to host file system.
+#
+# Hide the entire root file system by default, and *only* mount in exactly what is needed.
+#
+TemporaryFileSystem=/:ro
+# Add core dependencies
+BindReadOnlyPaths=/etc/ /lib/ /lib64/
+# Add daemon paths
+BindReadOnlyPaths=/usr/bin/nyancoind /etc/nyancoin/
+BindPaths=/var/lib/nyancoin
+### Restrict access to system.
+NoNewPrivileges=true
 PrivateTmp=true
-TimeoutStopSec=60s
-TimeoutStartSec=2s
-StartLimitInterval=120s
-StartLimitBurst=5
-
+PrivateDevices=true
+PrivateUsers=true
+DevicePolicy=closed
+ProtectHome=true
+ProtectHostname=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectKernelLogs=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+MemoryDenyWriteExecute=true
+LockPersonality=true
+# ProtectSystem=strict would normally be used, however it nullifies TemporaryFileSystem,
+# since it remounts root as read only over the top.
+# In this case, do not enable ProtectSystem.
+#ProtectSystem=strict
 [Install]
 WantedBy=multi-user.target
