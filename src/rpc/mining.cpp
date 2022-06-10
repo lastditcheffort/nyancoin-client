@@ -636,10 +636,13 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
                 // Not exposed to GBT at all
                 break;
             case THRESHOLD_LOCKED_IN:
-                // Ensure bit is set in block version
+            {
+                // Ensure bit is set in block version, then fall through to get vbavailable set
                 pblock->nVersion |= VersionBitsMask(consensusParams, pos);
-                // FALL THROUGH to get vbavailable set...
+
             case THRESHOLD_STARTED:
+            }
+            // Falls through
             {
                 const struct BIP9DeploymentInfo& vbinfo = VersionBitsDeploymentInfo[pos];
                 vbavailable.push_back(Pair(gbt_vb_name(pos), consensusParams.vDeployments[pos].bit));
