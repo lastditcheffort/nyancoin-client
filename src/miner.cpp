@@ -96,8 +96,13 @@ BlockAssembler::BlockAssembler(const CChainParams& _chainparams)
     }
     if (IsArgSet("-blockmintxfee")) {
         CAmount n = 0;
-        ParseMoney(GetArg("-blockmintxfee", ""), n);
-        blockMinFeeRate = CFeeRate(n);
+    if (gArgs.IsArgSet("-blockmintxfee")) {
+        if (ParseMoney(gArgs.GetArg("-blockmintxfee", ""), n) && n <= MAX_FEE_RATE) {
+            options.blockMinFeeRate = CFeeRate(n);
+        } else {
+            LogPrintf("DefaultOptions(): Specified -blockmintxfee is either not a valid amount, or is greater than the maximum fee rate %d.\n", MAX_FEE_RATE);
+            options.blockMinFeeRate = CFeeRate(DEFAULT_BLOCK_MIN_TX_FEE);
+        }
     } else {
         blockMinFeeRate = CFeeRate(DEFAULT_BLOCK_MIN_TX_FEE);
     }
