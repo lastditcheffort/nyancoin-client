@@ -1,6 +1,4 @@
-### Building nyancoin-qt 1.14 on modern macs. ###
-
-Note that this requires changes made by michilumin on the 1.14-dev branch as well as some changes to BDB.
+### Building nyancoin-qt 2.x on modern macs. ###
 
 Tested on OSX 10.11 El Capitan and 10.13 High Sierra.
 
@@ -8,9 +6,7 @@ Tested on OSX 10.11 El Capitan and 10.13 High Sierra.
 
 ### Clone nyancoin locally, or check it out, etc. ###
 
-For this purpose, just indicating the 1.14-branding branch in my repo.
-
-	$git clone -b 1.14-branding --single-branch https://github.com/michilumin/nyancoin.git
+	$git clone https://github.com/nyancoin-official/nyancoin-client.git
 
 ### Set up OSX basic build dependencies. ##
 
@@ -40,43 +36,28 @@ Install Boost lib via Brew from source, and link it to be sure:
     $brew install boost --build-from-source --HEAD
     $brew link boost167
 
-### Get, Patch And Compile BDB 5.1 ###
+### Get, Patch And Compile BDB 4.8.30 ###
 
-Download bdb 5.1.29 source from Oracle.
+Download bdb 4.8.30 source from Oracle.
 
-    $curl -o db-5.1.29.tar.gz http://download.oracle.com/berkeley-db/db-5.1.29.tar.gz
-    $tar xvfz db-5.1.29.tar.gz
-    $cd db-5.1.29
+    $curl -O https://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
+    $tar -zxvf db-4.8.30.NC.tar.gz
+    $cd db-4.8.30.NC
 
-Patch bdb 5.1.29 from our patchfiles
-
-    $cd src
-    $cd dbinc
-    $patch -b atomic.h ~/nyancoin/depends/patches/bdb-5.1.29-clang-osx/atomic.h.patch
-    $cd ..
-    $cd mp
-    $patch -b mp_fget.c ~/nyancoin/depends/patches/bdb-5.1.29-clang-osx/mp_fget.c.patch
-    $patch -b mp_mvcc.c ~/nyancoin/depends/patches/bdb-5.1.29-clang-osx/mp_mvcc.c.patch
-    $patch -b mp_region.c ~/nyancoin/depends/patches/bdb-5.1.29-clang-osx/mp_region.c.patch
-    $cd ..
-    $cd mutex
-    $patch -b mut_method.c ~/nyancoin/depends/patches/bdb-5.1.29-clang-osx/mut_method.c.patch
-    $patch -b mut_tas.c ~/nyancoin/depends/patches/bdb-5.1.29-clang-osx/mut_tas.c.patch
-
-Build BDB 5.1.29
+Build BDB 4.8.30
 
     $cd ../.. 
     $cd build_unix
     $../dist/configure CXX=clang++ --enable-cxx
     $make
-    $sudo mkdir /usr/local/BerkeleyDB.5.1
-    $sudo chown $(whoami):admin /usr/local/BerkeleyDB.5.1
+    $sudo mkdir /usr/local/BerkeleyDB.4.8
+    $sudo chown $(whoami):admin /usr/local/BerkeleyDB.4.8
     $sudo make install
 
 ### Set some environment variables and links for bdb and openssl ###
 
-    $export LDFLAGS=-L/usr/local/BerkeleyDB.5.1/lib
-    $export CPPFLAGS=-I/usr/local/BerkeleyDB.5.1/include
+    $export LDFLAGS=-L/usr/local/BerkeleyDB.5.8/lib
+    $export CPPFLAGS=-I/usr/local/BerkeleyDB.4.8/include
     $export INCPATHS=-I/usr/local/opt/openssl/include
     $export LIBPATHS=-L/usr/local/opt/openssl/lib
     $cd /usr/local/include 
