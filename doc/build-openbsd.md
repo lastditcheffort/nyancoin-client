@@ -1,6 +1,6 @@
 OpenBSD build guide
 ======================
-(updated for OpenBSD 6.0)
+(updated for OpenBSD 7.1)
 
 This guide describes how to build nyancoind and command-line utilities on OpenBSD.
 
@@ -142,7 +142,7 @@ gmake check
 Clang (not currently working)
 ------------------------------
 
-WARNING: This is outdated, needs to be updated for OpenBSD 6.0 and re-tried.
+WARNING: This is outdated, needs to be updated for OpenBSD 7.1 and re-tried.
 
 Using a newer g++ results in linking the new code to a new libstdc++.
 Libraries built with the old g++, will still import the old library.
