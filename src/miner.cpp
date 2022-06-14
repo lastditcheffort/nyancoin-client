@@ -96,7 +96,6 @@ BlockAssembler::BlockAssembler(const CChainParams& _chainparams)
     }
     if (IsArgSet("-blockmintxfee")) {
         CAmount n = 0;
-    if (gArgs.IsArgSet("-blockmintxfee")) {
         ParseMoney(GetArg("-blockmintxfee", ""), n);
         blockMinFeeRate = CFeeRate(n);
     } else {
