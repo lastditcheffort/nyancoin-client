@@ -31,7 +31,7 @@ outgoing connections be anonymized, but more is possible.
 
 In a typical situation, this suffices to run behind a Tor proxy:
 
-	./nyancoin -proxy=127.0.0.1:9050
+	./nyancoind -proxy=127.0.0.1:9050
 
 
 2. Run a Nyancoin hidden server
@@ -42,11 +42,11 @@ reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equiv
 config file):
 
 	HiddenServiceDir /var/lib/tor/nyancoin-service/
-	HiddenServicePort 22556 127.0.0.1:22556
-	HiddenServicePort 44556 127.0.0.1:44556
+	HiddenServicePort 33701 127.0.0.1:33701
+	HiddenServicePort xxxxx 127.0.0.1:xxxxx
 
 The directory can be different of course, but (both) port numbers should be equal to
-your nyancoind's P2P listen port (22556 by default).
+your nyancoind's P2P listen port (33701 by default).
 
 	-externalip=X   You can tell Nyancoin about its publicly reachable address using
 	                this option, and this can be a .onion address. Given the above
@@ -81,7 +81,7 @@ as well, use `discover` instead:
 
 	./nyancoind ... -discover
 
-and open port 22556 on your firewall (or use -upnp).
+and open port 33701 on your firewall (or use -upnp).
 
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:
