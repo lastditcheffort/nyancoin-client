@@ -1,4 +1,4 @@
-Nyancoin Core 0.14.2
+Nyancoin Core 2.0
 =====================
 
 Setup
@@ -26,10 +26,9 @@ Drag Nyancoin-Core to your applications folder, and then run Nyancoin-Core.
 
 ### Need Help?
 
-* See the documentation at the [Bitcoin Wiki](https://en.bitcoin.it/wiki/Main_Page)
-for help and more information.
-* Ask for help on [#nyancoin](http://webchat.freenode.net?channels=nyancoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=nyancoin).
-* Ask for help on the [BitcoinTalk](https://bitcointalk.org/) forums, in the [Nyancoin thread](https://bitcointalk.org/index.php?topic=361813.0).
+* Ask for help on the [Nyancoin Telegram channel](https://t.me/nyancoins).
+* Ask for help on the [BitcoinTalk](https://bitcointalk.org/) forums, in the [Nyancoin thread](https://bitcointalk.org/index.php?topic=1636509.0).
+* Ask for help on the [Nyancoin subreddit](https://www.reddit.com/r/nyancoins/).
 
 Building
 ---------------------
@@ -39,7 +38,6 @@ The following are developer notes on how to build Nyancoin on your native platfo
 - [Unix Build Notes](build-unix.md)
 - [Windows Build Notes](build-windows.md)
 - [OpenBSD Build Notes](build-openbsd.md)
-- [Gitian Building Guide](gitian-building.md)
 
 Development
 ---------------------
@@ -50,7 +48,6 @@ The Nyancoin repo's [root README](/README.md) contains relevant information on t
 - [Release Process](release-process.md)
 - [Translation Process](translation_process.md)
 - [Translation Strings Policy](translation_strings_policy.md)
-- [Travis CI](travis-ci.md)
 - [Unauthenticated REST Interface](REST-interface.md)
 - [Shared Libraries](shared-libraries.md)
 - [BIPS](bips.md)
@@ -58,8 +55,8 @@ The Nyancoin repo's [root README](/README.md) contains relevant information on t
 - [Benchmarking](benchmarking.md)
 
 ### Resources
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/) forums, in the [Nyancoin thread](https://bitcointalk.org/index.php?topic=361813.0).
-* Discuss on [#nyancoin-dev](http://webchat.freenode.net/?channels=nyancoin-dev) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=nyancoin-dev).
+* Discuss on the [BitcoinTalk](https://bitcointalk.org/) forums, in the [Nyancoin thread](https://bitcointalk.org/index.php?topic=1636509.0).
+* Discuss on [Nyancoin Telegram channel](https://t.me/nyancoins).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)
