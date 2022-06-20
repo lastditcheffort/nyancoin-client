@@ -161,29 +161,29 @@ turned off by default.  See the configure options for upnp behavior desired:
 
 Berkeley DB
 -----------
-It is recommended to use Berkeley DB 5.1. If you have to build it yourself:
+It is recommended to use Berkeley DB 4.8.30. If you have to build it yourself:
 
 ```bash
-BITCOIN_ROOT=$(pwd)
+NYANCOIN_ROOT=$(pwd)
 
 # Pick some path to install BDB to, here we create a directory within the nyancoin directory
-BDB_PREFIX="${BITCOIN_ROOT}/db5"
+BDB_PREFIX="${NYANCOIN_ROOT}/db5"
 mkdir -p $BDB_PREFIX
 
 # Fetch the source and verify that it is not tampered with
-wget 'http://download.oracle.com/berkeley-db/db-5.1.29.NC.tar.gz'
-echo '08238e59736d1aacdd47cfb8e68684c695516c37f4fbe1b8267dde58dc3a576c db-5.1.29.NC.tar.gz' | sha256sum -c
-# -> db-5.1.29.NC.tar.gz: OK
-tar -xzvf db-5.1.29.NC.tar.gz
+wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz'
+echo '12edc0df75bf9abd7f82f821795bcee50f42cb2e5f76a6a281b85732798364ef db-4.8.30.NC.tar.gz' | sha256sum -c
+# -> db-4.8.30.NC.tar.gz: OK
+tar -xzvf db-4.8.30.NC.tar.gz
 
 # Build the library and install to our prefix
-cd db-5.1.29.NC/build_unix/
+cd db-4.8.30.NC/build_unix/
 #  Note: Do a static build so that it can be embedded into the executable, instead of having to find a .so at runtime
 ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
 make install
 
 # Configure Nyancoin Core to use our own-built instance of BDB
-cd $BITCOIN_ROOT
+cd $NYANCOIN_ROOT
 ./autogen.sh
 ./configure LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/" # (other args...)
 ```
@@ -278,8 +278,8 @@ Setup and Build Example: Arch Linux
 This example lists the steps necessary to setup and build a command line only, non-wallet distribution of the latest changes on Arch Linux:
 
     pacman -S git base-devel boost libevent python
-    git clone https://github.com/bitcoin/bitcoin.git
-    cd bitcoin/
+    git clone https://github.com/nyancoin-official/nyancoin-client.git
+    cd nyancoin-client
     ./autogen.sh
     ./configure --disable-wallet --without-gui --without-miniupnpc
     make check
