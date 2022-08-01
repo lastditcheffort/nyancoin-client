@@ -1,19 +1,4 @@
 This is the original source code for nyancat cli.
 
 To build:
-`gcc -static -s -o bin/nyancat-cli nyancat.c`
-
-Running included prebuilt binaries.
-
-Linux (x86):
-`bin/x86-66-nyancat-cli`
-
-Android (via Termux)
-
-`curl -O https://github.com/nyancoin-official/nyancoin-client/raw/master/src/nyancat-cli/bin/armv5-nyancat-cli`
-`./armv5-nyancat-cli`
-
-CHECKSUMS:
-
-64f6d51d94fe72bec0955a3e50eaf0f8c3b334650b01d5fb95b4068013fccaafddb369088559d211eb13b02b4e07e5faab5267b12febaaf4259cdd81223af50e  bin/x86-66-nyancat-cli
-d5d071ad20da942a44fbb97eda2d188d0c8cc4c359f194e4ec576037c5a7b01e57ae8ea65322fb7792bb614c927ff0a4b10571aa342a514e2df9beaea56d179b  bin/armv5-nyancat-cli
+Run `make` inside this folder. Adjust the `CC` field in the Makefile if cross-compiling.
