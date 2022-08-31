@@ -113,6 +113,9 @@ class ImportRescanTest(BitcoinTestFramework):
     def __init__(self):
         super().__init__()
         self.num_nodes = 2 + len(IMPORT_NODES)
+        
+        def first_node(self):
+        return self.nodes[0]
 
     def setup_network(self):
         extra_args = [["-debug=1"] for _ in range(self.num_nodes)]
@@ -125,6 +128,8 @@ class ImportRescanTest(BitcoinTestFramework):
             connect_nodes(self.nodes[i], 0)
 
     def run_test(self):
+        self.test_argument_validation()
+        
         # Create one transaction on node 0 with a unique amount and label for
         # each possible type of wallet import RPC.
         for i, variant in enumerate(IMPORT_VARIANTS):
@@ -178,6 +183,22 @@ class ImportRescanTest(BitcoinTestFramework):
                 variant.check(variant.sent_txid, variant.sent_amount, 1)
             else:
                 variant.check()
+                
+    def test_argument_validation(self):
+        node = self.first_node()
+
+        try:
+            node.importprivkey("")
+        except JSONRPCException as e:
+            assert("Invalid private key encoding" in e.error["message"])
+
+        address = node.validateaddress(node.getnewaddress("some label"))
+        privkey = node.dumpprivkey(address["address"])
+
+        try:
+            node.importprivkey(privkey, "", True, str(node.getblockcount() + 1))
+        except JSONRPCException as e:
+            assert("Block height out of range" in e.error["message"])                
 
 
 def try_rpc(func, *args, **kwargs):
