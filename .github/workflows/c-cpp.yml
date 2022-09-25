@@ -1,4 +1,4 @@
-name: '[FULL] ubuntu-18.04.'
+name: '[FULL] ubuntu-20.04.'
 
 on: [push]
 
