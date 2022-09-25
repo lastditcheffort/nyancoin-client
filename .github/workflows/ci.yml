@@ -47,7 +47,7 @@ jobs:
             goal: install
           - name: aarch64-linux
             host: aarch64-linux-gnu
-            os: ubuntu-18.04
+            os: ubuntu-20.04
             packages: g++-aarch64-linux-gnu
             run-tests: false
             check-security: true
@@ -107,7 +107,7 @@ jobs:
             goal: install
           - name: x86_64-macos
             host: x86_64-apple-darwin11
-            os: ubuntu-18.04
+            os: ubuntu-20.04
             packages: cmake imagemagick libcap-dev librsvg2-bin libz-dev libtiff-tools libtinfo5 python3-setuptools xorriso libtinfo5
             run-tests: false
             dep-opts: ""
