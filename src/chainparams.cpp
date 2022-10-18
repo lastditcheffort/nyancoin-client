@@ -287,18 +287,18 @@ public:
         consensus.DiffMode = 1;  //always 1
         consensus.DiffModeV2 = 11327900; //set to height for the new diffmode
 
-        // Blocks 145000 - 371336 are Digishield without AuxPoW
+        // Blocks < 4468643 are Digishield without AuxPoW
         digishieldConsensus = consensus;
-        digishieldConsensus.nHeightEffective = 11327900;
+        digishieldConsensus.nHeightEffective = 4468643;
         digishieldConsensus.fSimplifiedRewards = true;
         digishieldConsensus.fDigishieldDifficultyCalculation = true;
         digishieldConsensus.nPowTargetTimespan = 60; // post-digishield: 1 minute
         digishieldConsensus.nPowTargetSpacing = 60; // 1 minute
         digishieldConsensus.nCoinbaseMaturity = 240;
 
-        // Blocks 11327960+ are AuxPoW
+        // Blocks 4468644+ are AuxPoW
         auxpowConsensus = digishieldConsensus;
-        auxpowConsensus.nHeightEffective = 11327960;
+        auxpowConsensus.nHeightEffective = 4468644;
         auxpowConsensus.fAllowLegacyBlocks = false;
 
         // Assemble the binary search tree of consensus parameters
