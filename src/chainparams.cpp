@@ -112,7 +112,7 @@ public:
         consensus.defaultAssumeValid = uint256S("0xb477d9bc0721a1b96547495404583d68123f471fdd1d4058a9adff2fa7452298");  // Block 11461900
 
         // AuxPoW parameters
-        consensus.nAuxpowChainId = 0x0151; // 337
+        consensus.nAuxpowChainId = 0x4C4; // 1220
         consensus.fStrictChainId = true;
         consensus.fAllowLegacyBlocks = true;
         consensus.nHeightEffective = 0;
@@ -274,7 +274,7 @@ public:
         consensus.defaultAssumeValid = uint256S("0x6943eaeaba98dc7d09f7e73398daccb4abcabb18b66c8c875e52b07638d93951"); // 900,000
 
         // AuxPoW parameters
-        consensus.nAuxpowChainId = 0x4C4; // 1220
+        consensus.nAuxpowChainId = 0xD9 // 217
         consensus.fStrictChainId = true;
         consensus.fAllowLegacyBlocks = true;
         consensus.nHeightEffective = 0;
