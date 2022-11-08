@@ -113,7 +113,7 @@ public:
 
         // AuxPoW parameters
         consensus.nAuxpowChainId = 0x4C4; // 1220
-        consensus.fStrictChainId = true;
+        consensus.fStrictChainId = false;
         consensus.fAllowLegacyBlocks = true;
         consensus.nHeightEffective = 0;
         consensus.SubnHeight = 99324614;
