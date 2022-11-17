@@ -127,7 +127,7 @@ public:
 
          // Blocks < 4477744 are Digishield without AuxPoW
         digishieldConsensus = consensus;
-        digishieldConsensus.nHeightEffective = 4477743;
+        digishieldConsensus.nHeightEffective = 5555555;
         digishieldConsensus.fSimplifiedRewards = true;
         digishieldConsensus.fDigishieldDifficultyCalculation = true;
         digishieldConsensus.nPowTargetTimespan = 3 * 60 * 60; // post-digishield: 1 minute
@@ -136,7 +136,7 @@ public:
 
         // Blocks 11327960+ are AuxPoW
         auxpowConsensus = digishieldConsensus;
-        auxpowConsensus.nHeightEffective = 4477744;
+        auxpowConsensus.nHeightEffective = 5555554;
         auxpowConsensus.fAllowLegacyBlocks = false;
 
         // Assemble the binary search tree of consensus parameters
