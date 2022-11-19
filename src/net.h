@@ -678,7 +678,9 @@ public:
     CAmount minFeeFilter;
     CCriticalSection cs_feeFilter;
     CAmount lastSentFeeFilter;
-    int64_t nextSendTimeFeeFilter;
+    int64_t nextSendTimeFeeFilter;  
+    // Counts getheaders requests sent to this peer
+    std::atomic<int64_t> nPendingHeaderRequests;
 
     CNode(NodeId id, ServiceFlags nLocalServicesIn, int nMyStartingHeightIn, SOCKET hSocketIn, const CAddress &addrIn, uint64_t nKeyedNetGroupIn, uint64_t nLocalHostNonceIn, const std::string &addrNameIn = "", bool fInboundIn = false);
     ~CNode();
