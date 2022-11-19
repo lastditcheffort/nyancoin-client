@@ -78,7 +78,6 @@ endif
 BITCOIN_CORE_H = \
   addrdb.h \
   addrman.h \
-  alert.h \
   auxpow.h \
   base58.h \
   bloom.h \
@@ -183,7 +182,6 @@ libnyancoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libnyancoin_server_a_SOURCES = \
   addrman.cpp \
   addrdb.cpp \
-  alert.cpp \
   bloom.cpp \
   blockencodings.cpp \
   chain.cpp \
@@ -306,7 +304,6 @@ libnyancoin_consensus_a_SOURCES = \
 libnyancoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libnyancoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libnyancoin_common_a_SOURCES = \
-  alert.cpp \
   amount.cpp \
   arith_uint256.cpp \
   auxpow.cpp \
