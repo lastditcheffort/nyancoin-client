@@ -74,7 +74,7 @@ void OptionsModel::Init(bool resetSettings)
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
     if (!settings.contains("strThirdPartyTxUrls"))
-        settings.setValue("strThirdPartyTxUrls", "http://chainz.cryptoid.info/fst/api.dws?q=txinfo&t=%s");
+        settings.setValue("strThirdPartyTxUrls", "https://nyanchain.com/tx.nyan?%s");
     strThirdPartyTxUrls = settings.value("strThirdPartyTxUrls", "").toString();
 
     if (!settings.contains("fCoinControlFeatures"))
