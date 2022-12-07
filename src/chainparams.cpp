@@ -113,7 +113,7 @@ public:
 
         // AuxPoW parameters
         consensus.nAuxpowChainId = 0x4C4; // 1220
-        consensus.fStrictChainId = true;
+        consensus.fStrictChainId = false;
         consensus.fAllowLegacyBlocks = true;
         consensus.nHeightEffective = 0;
         consensus.SubnHeight = 99324614;
@@ -125,19 +125,19 @@ public:
         consensus.DiffMode = 1;  //always 1
         consensus.DiffModeV2 = 66999; //set to height for the new diffmode
 
-         // Blocks < 4477744 are Digishield without AuxPoW
+         // Blocks < 4533354 are Digishield without AuxPoW
         digishieldConsensus = consensus;
-        digishieldConsensus.nHeightEffective = 5555555;
+        digishieldConsensus.nHeightEffective = 4533353;
         digishieldConsensus.fSimplifiedRewards = true;
         digishieldConsensus.fDigishieldDifficultyCalculation = true;
         digishieldConsensus.nPowTargetTimespan = 3 * 60 * 60; // post-digishield: 1 minute
         digishieldConsensus.nPowTargetSpacing = 60; // 1 minute
         digishieldConsensus.nCoinbaseMaturity = 15;
 
-        // Blocks 11327960+ are AuxPoW
+        // Blocks 4533354+ are AuxPoW
         auxpowConsensus = digishieldConsensus;
-        auxpowConsensus.nHeightEffective = 5555554;
-        auxpowConsensus.fAllowLegacyBlocks = false;
+        auxpowConsensus.nHeightEffective = 4533354;
+        auxpowConsensus.fAllowLegacyBlocks = true;
 
         // Assemble the binary search tree of consensus parameters
         pConsensusRoot = &digishieldConsensus;
@@ -202,15 +202,14 @@ public:
 (	2000000, uint256S("0xd8ee546b11171d63f673cdd8f197fd8e474591dda230c4fd6ed64b89410c5058"))
 (	2500000, uint256S("0xdf1983db60f8d1a2ca800b3317d60ce4dc915de56391fb8c5ac0a716eb13763f"))
 (	3000000, uint256S("0xa33706ed9d49a338c171eb9bae11c9dc6fefa41c8a47f5e44cd6e0887eb7e1c6"))
-(	3247562, uint256S("0x83002e09b3ef17b09e9e2d021d7262e7145c7605bfb6ab923640bdcdf24a1206"))
-(       3794498, uint256S("0xf8b02b96ab1164cd5fe94e39cc3e2f9e5025ac9664437fcb0e65851677f49054"))		    
+(	3247562, uint256S("0x83002e09b3ef17b09e9e2d021d7262e7145c7605bfb6ab923640bdcdf24a1206"))		    
         };
 
         chainTxData = ChainTxData{
         
-            1388708431, // * UNIX timestamp of last checkpoint block
-            0,   // * total number of transactions between genesis and last checkpoint
-                        //   (the tx=... number in the SetBestChain debug.log lines)
+            1591102676, // * UNIX timestamp of last checkpoint block
+            0,         // * total number of transactions between genesis and last checkpoint
+                      //   (the tx=... number in the SetBestChain debug.log lines)
             0.5      // * estimated number of transactions per second after checkpoint
         };
         nMaxReorganizationDepth = 55; // 55 at 1 minute block timespan is +/- 55 minutes.
