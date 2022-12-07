@@ -113,9 +113,9 @@ public:
 
         // AuxPoW parameters
         consensus.nAuxpowChainId = 0x4C4; // 1220
-        consensus.fStrictChainId = false;
-        consensus.fAllowLegacyBlocks = true;
-        consensus.nHeightEffective = 0;
+        consensus.fStrictChainId = true;
+        consensus.fAllowLegacyBlocks = false;
+        consensus.nHeightEffective = 4534462;
         consensus.SubnHeight = 99324614;
         consensus.SubV = 67002;
         consensus.SubBlks = 2000;
@@ -137,7 +137,7 @@ public:
         // Blocks 4534462+ are AuxPoW
         auxpowConsensus = digishieldConsensus;
         auxpowConsensus.nHeightEffective = 4534462;
-        auxpowConsensus.fAllowLegacyBlocks = true;
+        auxpowConsensus.fAllowLegacyBlocks = false;
 
         // Assemble the binary search tree of consensus parameters
         pConsensusRoot = &digishieldConsensus;
