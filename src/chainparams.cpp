@@ -106,16 +106,16 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 0; // Disabled
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000fd6e84dd5364d4");  // Block 11461900
+        consensus.nMinimumChainWork = uint256S("00000000000000000000000000000000000000000000000005f9e9338c1453df");  // Block 4537316
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0xb477d9bc0721a1b96547495404583d68123f471fdd1d4058a9adff2fa7452298");  // Block 11461900
+        consensus.defaultAssumeValid = uint256S("0x75eb5103ed9a54bdf10f8de915ce4f5378e7572c1f13b5e41a7b0258c37f414f");  // Block 4537316
 
         // AuxPoW parameters
         consensus.nAuxpowChainId = 0x4C4; // 1220
         consensus.fStrictChainId = false;
         consensus.fAllowLegacyBlocks = true;
-        consensus.nHeightEffective = 4533354;
+        consensus.nHeightEffective = 4557554;
         consensus.SubnHeight = 99324614;
         consensus.SubV = 67002;
         consensus.SubBlks = 2000;
@@ -125,9 +125,9 @@ public:
         consensus.DiffMode = 1;  //always 1
         consensus.DiffModeV2 = 66999; //set to height for the new diffmode
 
-         // Blocks < 4533353 are Digishield without AuxPoW
+         // Blocks < 4557553 are Digishield without AuxPoW
         digishieldConsensus = consensus;
-        digishieldConsensus.nHeightEffective = 4533353;
+        digishieldConsensus.nHeightEffective = 4557553;
         digishieldConsensus.fSimplifiedRewards = true;
         digishieldConsensus.fDigishieldDifficultyCalculation = true;
         digishieldConsensus.nPowTargetTimespan = 3 * 60 * 60; // post-digishield: 1 minute
@@ -136,7 +136,7 @@ public:
 
         // Blocks 4533354+ are AuxPoW
         auxpowConsensus = digishieldConsensus;
-        auxpowConsensus.nHeightEffective = 4533354;
+        auxpowConsensus.nHeightEffective = 4557554;
         auxpowConsensus.fAllowLegacyBlocks = false;
 
         // Assemble the binary search tree of consensus parameters
@@ -210,7 +210,7 @@ public:
 
         chainTxData = ChainTxData{
 		1668931155,  // * UNIX timestamp of last checkpoint block
-			 0,  // * total number of transactions between genesis and last checkpoint
+		   5116562,  // * total number of transactions between genesis and last checkpoint
 			     // (the tx=... number in the SetBestChain debug.log lines)
 		       0.5   // * estimated number of transactions per second after checkpoint
         };
