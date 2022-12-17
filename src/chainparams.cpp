@@ -83,7 +83,7 @@ public:
         consensus.BIP34Hash = uint256S("0x4bd3308d384e80094e4659f9a3245e6f444688edbec0ad88b9a5dfd4be87454e");
         consensus.BIP65Height = 99324613; // 
         consensus.BIP66Height = 99324613; // 80d1364201e5df97e696c03bdd24dc885e8617b9de51e453c10a4f629b1e797a - this is the last block that could be v2, 1900 blocks past the last v2 block
-	consensus.newMinProtoHeight = 4537900;
+	consensus.newMinProtoHeight = 4557554;
         consensus.powLimit = uint256S("0x00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20;
         consensus.fDigishieldDifficultyCalculation = false;
         consensus.fPowAllowMinDifficultyBlocks = false;
