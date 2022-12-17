@@ -116,7 +116,7 @@ public:
         consensus.nAuxpowChainId = 0x4C4; // 1220
         consensus.fStrictChainId = false;
         consensus.fAllowLegacyBlocks = true;
-        consensus.nHeightEffective = 4557554;
+        consensus.nHeightEffective = 4539064;
         consensus.SubnHeight = 99324614;
         consensus.SubV = 67002;
         consensus.SubBlks = 2000;
@@ -128,7 +128,7 @@ public:
 
          // Blocks < 4557553 are Digishield without AuxPoW
         digishieldConsensus = consensus;
-        digishieldConsensus.nHeightEffective = 4557553;
+        digishieldConsensus.nHeightEffective = 4539063;
         digishieldConsensus.fSimplifiedRewards = true;
         digishieldConsensus.fDigishieldDifficultyCalculation = true;
         digishieldConsensus.nPowTargetTimespan = 3 * 60 * 60; // post-digishield: 1 minute
@@ -137,7 +137,7 @@ public:
 
         // Blocks 4533354+ are AuxPoW
         auxpowConsensus = digishieldConsensus;
-        auxpowConsensus.nHeightEffective = 4557554;
+        auxpowConsensus.nHeightEffective = 4539064;
         auxpowConsensus.fAllowLegacyBlocks = false;
 
         // Assemble the binary search tree of consensus parameters
