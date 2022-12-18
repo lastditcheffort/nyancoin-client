@@ -107,10 +107,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 0; // Disabled
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("00000000000000000000000000000000000000000000000005f9e9338c1453df");  // Block 4537316
+        consensus.nMinimumChainWork = uint256S("00000000000000000000000000000000000000000000000004df0be66dc5cfbb");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x75eb5103ed9a54bdf10f8de915ce4f5378e7572c1f13b5e41a7b0258c37f414f");  // Block 4537316
+        consensus.defaultAssumeValid = uint256S("0xcd5dfc9b6278fc935df20227cdc619c2abae7e03b097fd62e9f89332e7a0b4fb");  // Block 4234688
 
         // AuxPoW parameters
         consensus.nAuxpowChainId = 0x4C4; // 1220
