@@ -83,7 +83,7 @@ public:
         consensus.BIP34Hash = uint256S("0x4bd3308d384e80094e4659f9a3245e6f444688edbec0ad88b9a5dfd4be87454e");
         consensus.BIP65Height = 99324613; // 
         consensus.BIP66Height = 99324613; // 80d1364201e5df97e696c03bdd24dc885e8617b9de51e453c10a4f629b1e797a - this is the last block that could be v2, 1900 blocks past the last v2 block
-        consensus.newMinProtoHeight = 4540345;
+        consensus.newMinProtoHeight = 4563654;
         consensus.powLimit = uint256S("0x00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20;
         consensus.fDigishieldDifficultyCalculation = false;
         consensus.fPowAllowMinDifficultyBlocks = false;
@@ -116,7 +116,7 @@ public:
         consensus.nAuxpowChainId = 0x4C4; // 1220
         consensus.fStrictChainId = false;
         consensus.fAllowLegacyBlocks = true;
-        consensus.nHeightEffective = 4540345;
+        consensus.nHeightEffective = 4563654;
         consensus.SubnHeight = 99324614;
         consensus.SubV = 67002;
         consensus.SubBlks = 2000;
@@ -126,18 +126,18 @@ public:
         consensus.DiffMode = 1;  //always 1
         consensus.DiffModeV2 = 66999; //set to height for the new diffmode
 
-         // Blocks < 4557553 are Digishield without AuxPoW
+         // Blocks < 4563653 are Digishield without AuxPoW
         digishieldConsensus = consensus;
-        digishieldConsensus.nHeightEffective = 4540344;
+        digishieldConsensus.nHeightEffective = 4563653;
         digishieldConsensus.fSimplifiedRewards = true;
         digishieldConsensus.fDigishieldDifficultyCalculation = true;
         digishieldConsensus.nPowTargetTimespan = 3 * 60 * 60; // post-digishield: 1 minute
         digishieldConsensus.nPowTargetSpacing = 60; // 1 minute
         digishieldConsensus.nCoinbaseMaturity = 15;
 
-        // Blocks 4533354+ are AuxPoW
+        // Blocks 4563655+ are AuxPoW
         auxpowConsensus = digishieldConsensus;
-        auxpowConsensus.nHeightEffective = 4540345;
+        auxpowConsensus.nHeightEffective = 4563654;
         auxpowConsensus.fAllowLegacyBlocks = false;
 
         // Assemble the binary search tree of consensus parameters
