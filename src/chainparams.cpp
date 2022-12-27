@@ -240,7 +240,6 @@ public:
 		   5116562,  // * total number of transactions between genesis and last checkpoint
 			     // (the tx=... number in the SetBestChain debug.log lines)
 		       0.5   // * estimated number of transactions per second after checkpoint
->>>>>>> 064c7b7c0c9e41eb126e66e0a57cbaf6c88113a4
         };
         nMaxReorganizationDepth = 55; // 55 at 1 minute block timespan is +/- 55 minutes.
         nMinReorganizationPeers = 3;
