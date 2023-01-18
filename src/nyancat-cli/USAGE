@@ -1,4 +1,0 @@
-This is the original source code for nyancat cli.
-
-To build:
-Run `make` inside this folder. Adjust the `CC` field in the Makefile if cross-compiling.
